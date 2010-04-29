@@ -15,10 +15,10 @@
 \makeatother
 \title{The \textsf{biblatex-chem} bundle --- 
   \textsf{biblatex} styles for chemistry%
-  \thanks{Describes version v0.8d, released 2009/09/15}}
+  \thanks{Describes version v0.8e, released 2009/09/17}}
 \author{Joseph Wright%
   \thanks{E-mail: joseph.wright@morningstar2.co.uk}}
-\date{Released 2009/09/15}
+\date{Released 2009/09/17}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -151,6 +151,18 @@ the inclusion of chapter titles if required.
 \usepackage[
   style=chem-rsc,
   chaptertitle
+  ]{biblatex}
+\end{verbatim}
+
+\DescribeOption{pageranges}
+Some journals only allow the first page of a range to be used, even
+if the data for the full range is available. The \texttt{pageranges}
+option can be used to turn off printing of the range for these
+journals.
+\begin{verbatim}
+\usepackage[
+  style=chem-rsc,
+  pageranges=false
   ]{biblatex}
 \end{verbatim}
 

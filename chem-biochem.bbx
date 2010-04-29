@@ -1,5 +1,5 @@
 \ProvidesFile{chem-biochem.bbx}
-[\abx@bbxid $Id: chem-biochem.bbx,v 0.8d 2009/09/15 09:00:00 joseph beta $]
+[\abx@bbxid $Id: chem-biochem.bbx,v 0.8e 2009/09/17 09:00:00 joseph beta $]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=15,urldate=long,useprefix}
 
@@ -10,6 +10,7 @@
 
 \providebool{bbx:articletitle}
 \providebool{bbx:chaptertitle}
+\providebool{bbx:pageranges}
 \providebool{bbx:subentry}
 \DeclareBibliographyOption{articletitle}[true]{%
   \setbool{bbx:articletitle}{#1}}
@@ -31,10 +32,12 @@
     \DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}%
   \fi
 }
+\DeclareBibliographyOption{pageranges}[true]{%
+  \setbool{bbx:pageranges}{#1}}
 \DeclareBibliographyOption{subentry}[true]{%
   \setbool{bbx:subentry}{#1}}
 
-\ExecuteBibliographyOptions{biblabel=parens,articletitle}
+\ExecuteBibliographyOptions{articletitle,biblabel=parens,pageranges=true}
 
 % The standard alias
 
@@ -51,7 +54,9 @@
   \ifhyperref
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
     {\nolinkurl{#1}}}
-\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[article]{pages}{%
+  \ifbool{bbx:pageranges}{#1}{\bbx@range@to@page{#1}}%
+}
 \DeclareFieldFormat{part}{Part\addspace#1}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{shorthandwidth}{\mkbibbrackets{#1}}

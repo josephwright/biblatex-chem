@@ -1,5 +1,5 @@
 \ProvidesFile{chem-rsc.bbx}
-[\abx@bbxid $Id: chem-rsc.bbx,v 0.8d 2009/09/15 09:00:00 joseph beta $]
+[\abx@bbxid $Id: chem-rsc.bbx,v 0.8e 2009/09/17 09:00:00 joseph beta $]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
 
@@ -10,6 +10,7 @@
 
 \providebool{bbx:articletitle}
 \providebool{bbx:chaptertitle}
+\providebool{bbx:pageranges}
 \providebool{bbx:subentry}
 \DeclareBibliographyOption{articletitle}[true]{%
   \setbool{bbx:articletitle}{#1}}
@@ -31,10 +32,12 @@
     \DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}%
   \fi
 }
+\DeclareBibliographyOption{pageranges}[true]{%
+  \setbool{bbx:pageranges}{#1}}
 \DeclareBibliographyOption{subentry}[true]{%
   \setbool{bbx:subentry}{#1}}
 
-\ExecuteBibliographyOptions{biblabel=parens}
+\ExecuteBibliographyOptions{biblabel=parens,pageranges=true}
 
 % The standard aliases
 
@@ -54,7 +57,9 @@
 \DeclareFieldFormat[patent]{number}{%
   \bbx@digits@space{#1}%
 }
-\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[article]{pages}{%
+  \ifbool{bbx:pageranges}{#1}{\bbx@range@to@page{#1}}%
+}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{part}{\addslash#1}
 \DeclareFieldFormat{shorthandwidth}{\mkbibbrackets{#1}}
@@ -169,6 +174,12 @@
   \fi
 }
 
+% For stripping a page range down to a single page
+\newcommand*\bbx@range@to@page[1]{%
+  \bbx@range@to@page@aux#1\bibrangedash\@nil
+}
+\def\bbx@range@to@page@aux#1\bibrangedash#2\@nil{#1}
+
 % New and altered bibliography macros
 
 \newbibmacro*{chapter+pages}{%
@@ -201,10 +212,17 @@
   \newunit
   \printfield{year}%
   \newunit}
+  
+\renewbibmacro*{journal}{%
+  \iffieldundef{journaltitle}
+    {}
+    {\printtext[journaltitle]{%
+       \printfield[titlecase]{journaltitle}%
+%       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{journalsubtitle}}}}
     
 \newbibmacro*{journal+volume}{%
-  \usebibmacro{journal}%
-  \midsentence
+  \printfield{journal}%
   \newunit
   \printfield{year}%
   \newunit
