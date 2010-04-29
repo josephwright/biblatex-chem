@@ -1,5 +1,5 @@
 \ProvidesFile{chem-angew.bbx}
-[\abx@bbxid $Id: chem-angew.bbx,v 0.8e 2009/09/17
+[\abx@bbxid $Id: chem-angew.bbx,v 0.9 2010/02/16
  09:00:00 joseph beta $]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
@@ -57,7 +57,7 @@
     {\nolinkurl{#1}}}
 \DeclareFieldFormat{journaltitle}{\mkbibemph{#1\isdot}}
 \DeclareFieldFormat[article]{pages}{%
-  \ifbool{bbx:pageranges}{#1}{\bbx@range@to@page{#1}}%
+  \ifbool{bbx:pageranges}{#1}{\mkpagefirst{#1}}%
 }
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{part}{\addslash#1}% physical part of a logical volume
@@ -114,11 +114,11 @@
 % Some altered strings, in English at least
    
 \DefineBibliographyStrings{english}{%
-  chapter     = {Chapter},
-  patentus    = {US Pat\adddot},
-  typeeditor  = {Ed\adddot},
-  typeeditors = {Eds\adddot},
-  volume      = {Vol\adddot}
+  chapter  = {Chapter},
+  editor   = {Ed\adddot},
+  editors  = {Eds\adddot},
+  patentus = {US Pat\adddot},
+  volume   = {Vol\adddot}
 }
 
 % Custom code to remove commas from titles
@@ -175,12 +175,6 @@
 \def\bbx@comma@end#1\bbx@comma@end{%
   \expandafter\endgroup\@tempa
 }
-
-% For stripping a page range down to a single page
-\newcommand*\bbx@range@to@page[1]{%
-  \bbx@range@to@page@aux#1\bibrangedash\@nil
-}
-\def\bbx@range@to@page@aux#1\bibrangedash#2\@nil{#1}
 
 % New and altered bibliography macros
 
