@@ -1,0 +1,38 @@
+%
+% This file presents the `chem-biochem' style
+%
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[english,UKenglish,american]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[
+  style=chem-biochem,
+  %articletitle, % To include article titles
+  %chaptertitle, % Include chapter titles for parts of books
+  %biblabel=dot, % Alter bibliography labels
+  %subentry,     % For (a), (b), etc. in sets
+  hyperref
+  ]{biblatex}
+\usepackage[
+  colorlinks,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black
+  ]{hyperref}
+\bibliography{biblatex-chem}
+
+\begin{document}
+
+\section*{The \texttt{chem-biochem} style}
+
+This style prints numeric citations with bibliography
+formatting following the rules of the American Chemical Society,
+as implemented in the journal \emph{Biochemistry}. Citations 
+will occur in-line, for example \autocite{Kabbe1973} or
+\autocite{Arduengo1991}.
+
+\nocite{*}
+
+\printbibliography
+
+\end{document}

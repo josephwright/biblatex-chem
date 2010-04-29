@@ -1,0 +1,44 @@
+%
+% This file presents the `chem-acs' style
+%
+\documentclass[a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[english,UKenglish,american]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[
+  style=chem-acs,
+  %articletitle, % To include article titles
+  %chaptertitle, % Include chapter titles for parts of books
+  %biblabel=dot, % Alter bibliography labels
+  %subentry,     % For (a), (b), etc. in sets
+  hyperref
+  ]{biblatex}
+\usepackage[
+  colorlinks,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black
+  ]{hyperref}
+\bibliography{biblatex-chem}
+
+\begin{document}
+
+\section*{The \texttt{chem-acs} style}
+
+This style prints numeric citations with bibliography
+formatting following the rules of the American Chemical Society,
+as outlined in \emph{The ACS Style Guide} \cite{Coghill2006}.
+This applies to journals such as \emph{Journal of the American
+Chemical Society}, \emph{The Journal of Organic Chemistry}
+and \emph{Organometallics}.  Some journals published by the ACS
+use superscript citations and some do not: read the package
+documentation for more details. With settings for citations as 
+given, the citations will be superscript and punctuation will be
+moved before citations, for example \autocite{Kabbe1973} or
+\autocite{Arduengo1991}.
+
+\nocite{*}
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,200 @@
+\documentclass[a4paper]{article}
+\usepackage{lmodern,mathpazo,courier,helvet,multicol}
+\usepackage[style=chem-rsc,hyperref]{biblatex}
+\usepackage[colorlinks]{hyperref}
+\bibliography{biblatex-chem}
+\reversemarginpar
+\makeatletter
+\newcommand*{\DescribeOption}[1]{%
+  \leavevmode
+  \@bsphack
+  \marginpar{\texttt{#1}}%
+  \@esphack
+  \ignorespaces
+}
+\makeatother
+\title{The \textsf{biblatex-chem} bundle --- 
+  \textsf{biblatex} styles for chemistry%
+  \thanks{Describes version v0.8, released 2008/10/17}}
+\author{Joseph Wright%
+  \thanks{E-mail: joseph.wright@morningstar2.co.uk}}
+\date{Released 2008/10/17}
+\begin{document}
+\maketitle
+\begin{abstract}
+The \textsf{biblatex-chem} bundle is a set of styles for 
+creating bibliographies using \textsf{biblatex} in the style of
+a number common chemistry journals.  The bundle comprises styles
+based on the conventions of the Royal Society of Chemistry, 
+American Chemical Society and 	\emph{Angewandte Chemie}. It
+therefore covers the journal styles of, for example:
+\begin{itemize}
+  \item \emph{Angewandte Chemie}
+  \item \emph{Biochemistry}
+  \item \emph{Chemical Communications}
+  \item \emph{Chemistry---A European Journal}
+  \item \emph{Dalton Transactions}
+  \item \emph{Journal of the American Chemical Society}
+  \item \emph{Organic \& Biomolecular Chemistry}
+\end{itemize}
+amongst others.
+\end{abstract}
+
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+
+\section{Introduction}
+The \textsf{biblatex} package introduces a completely new method
+for controlling the creation of bibliographies using
+\textsf{bibtex}. This makes a great deal of flexibility 
+available when creating bibliographies, most of which is much 
+more difficult with traditional \textsf{bibtex} styles.
+
+In order to use \textsf{biblatex}, an entirely new set of 
+appropriate supporting styles are needed. This bundle provides a
+number of styles for chemistry, following the rules of some of 
+the most important journals in the field. 
+
+\section{The styles}
+
+Currently, the bundle contains four \textsf{biblatex} styles:
+\begin{itemize}
+  \item \texttt{chem-acs}: American Chemical Society style
+  \item \texttt{chem-angew}: \emph{Angewandte Chemie} style
+  \item \texttt{chem-biochem}: \emph{Biochemistry} style
+  \item \texttt{chem-rsc}: Royal Society of Chemistry style
+\end{itemize}
+These can all be loaded in the usual way:
+\begin{verbatim}
+\usepackage[style=chem-<name>]{biblatex}
+\end{verbatim}
+
+The four styles can be used to follow the current layout rules
+of all of the journals currently published by the American 
+Chemical Society and the Royal Society of Chemistry, plus 
+the journals published by Wiley which use the \emph{Angewandte
+Chemie} format.
+
+The styles use the standard \textsf{biblatex} database 
+requirements, although they are somewhat selective in which
+fields are used (for example, \texttt{language} is never 
+printed).  This means that a database designed for traditional
+\textsf{biblatex} use may need some editing for optimal output.
+The accompanying example database \texttt{biblatex-chem.bib} 
+shows examples of all of the supported entry types with common
+fields filled in.
+
+\section{Style options}
+
+All of the styles here add a small number of package options to 
+the standard set provided by \textsf{biblatex}. This allows 
+the styles to cover the variations seen between different 
+journals without needing a very large number of files: the 
+American Chemical Society in particular varies the exact details
+between journals.
+
+\DescribeOption{articletitle}
+The \texttt{articletitle} option is a switch for including the 
+title of journal articles in the output. For the styles 
+\texttt{chem-acs}, \texttt{chem-angew} and \texttt{chem-rsc} this 
+is turned off on loading, and you therefore need to use for 
+example
+\begin{verbatim}
+\usepackage[
+  style=chem-rsc,
+  articletitle
+  ]{biblatex}
+\end{verbatim}
+or
+\begin{verbatim}
+\usepackage[
+  style=chem-rsc,
+  articletitle=true
+  ]{biblatex}
+\end{verbatim}
+to include titles.  In the case of the \texttt{chem-biochem} 
+style, the titles are included as standard: this can be turned
+off using
+\begin{verbatim}
+\usepackage[
+  style=chem-biochem,
+  articletitle=false
+  ]{biblatex}.
+\end{verbatim}
+
+\DescribeOption{biblabel}
+The format of the numbers used in the bibliography varies from
+journal to journal even if the same general style is used.  The
+\texttt{biblabel} option allows the user to easily set the 
+format used.  This option takes a value from the list: 
+\texttt{parens}, \texttt{brackets}, \texttt{plain} and 
+\texttt{dot}.
+For example
+\begin{verbatim}
+\usepackage[
+  style=chem-angew,
+  biblabel=plain
+  ]{biblatex}
+\end{verbatim}
+would use the style of \emph{Angewandte Chemie} but with nothing
+added to the numbers in the bibliography.
+
+\DescribeOption{chaptertitle}
+The inclusion of chapter titles in \texttt{inbook} and 
+\texttt{incollection} entries is not consistent in chemistry 
+journals; the \emph{ACS Style Guide} recommends their use, but
+does not require it \autocite{Coghill2006}. As a result, the
+styles here provide the \texttt{chaptertitle} option to allow
+the inclusion of chapter titles if required.
+\begin{verbatim}
+\usepackage[
+  style=chem-rsc,
+  chaptertitle
+  ]{biblatex}
+\end{verbatim}
+
+\DescribeOption{subentry}
+In common with the standard \textsf{biblatex} numeric styles, 
+all of the styles here support the \texttt{subentry} option. 
+With this turned on, entries of type \texttt{set} are given 
+individual labels within the bibliography.  
+\begin{verbatim}
+\usepackage[
+  style=chem-acs,
+  subentry
+  ]{biblatex}
+\end{verbatim}
+The result is very similar to the behaviour of the 
+\textsf{mciteplus} package.
+
+Different ACS journals use varying combinations of bibliography
+styles (\texttt{chem-acs} or \texttt{chem-biochem}), citations 
+styles, bibliography labels and article title inclusion.  In 
+general, the user will need to consult a recent issue of the 
+journal concerned to check which options to use.
+
+\section{New styles}
+
+The current set of styles here is intended to form a strong base
+for chemists.  However, there will be the need for other styles
+to be created. The package author welcomes suggestions for other
+styles for inclusion.  It would also be good to keep all 
+chemistry-related \textsf{biblatex} styles in one bundle. Others
+working on chemistry styles for \textsf{biblatex} are welcome to
+send them to the bundle maintainer so they can be incorporated 
+here.
+
+\section{Errors and omissions}
+
+Creating a \textsf{biblatex} style is a complex task, 
+particularly as chemistry journals only give complete rules
+for the layout of references to journal articles.  The 
+examples and test database provided with this bundle should be
+consulted to see how the formatting is intended to work.  
+Feedback on errors an ommissions in either the database or the 
+styles is very welcome.
+
+\printbibliography
+
+\end{document}
