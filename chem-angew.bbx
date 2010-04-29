@@ -1,5 +1,5 @@
 \ProvidesFile{chem-angew.bbx}
-[\abx@bbxid $Id: chem-angew.bbx,v 0.9a 2010/03/26
+[\abx@bbxid $Id: chem-angew.bbx,v 0.9b 2010/03/30
  09:00:00 joseph beta $]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
@@ -530,11 +530,7 @@
   \newunit
   \printfield{note}%
   \newunit
-  \printlist{organization}%
-  \newunit
-  \printlist{location}%
-  \newunit
-  \usebibmacro{date}%
+  \printlist{organization+location+date}%
   \newunit
   \printfield{doi}%
   \newunit
