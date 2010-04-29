@@ -1,3 +1,11 @@
+----------------------------------------------------------------
+The biblatex-chem bundle - biblatex styles for chemistry
+Maintained by Joseph Wright
+E-mail: joseph.wright@morningstar2.co.uk
+Released under the LaTeX Project Public License v1.3c or later
+See http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
 The biblatex-chem bundle is a set of styles for creating 
 bibliographies using biblatex in the style of a number common 
 chemistry journals.  The bundle comprises styles based on the

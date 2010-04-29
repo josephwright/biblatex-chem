@@ -1,7 +1,7 @@
 \ProvidesFile{chem-biochem.bbx}
 [\blx@bbxid $Id: chem-biochem.bbx,v 0.8 2008/10/17 09:00:00 joseph beta $]
 
-\ExecuteBibliographyOptions{labelnumber,maxnames=15,urldate=long}
+\ExecuteBibliographyOptions{labelnumber,maxnames=15,urldate=long,useprefix}
 
 \newbibmacro*{begentry}{}
 \newbibmacro*{finentry}{\finentry}
@@ -47,6 +47,7 @@
   \mkbibparens{\mknumalph{#1}}}
 \DeclareFieldFormat{doi}{%
   DOI\addcolon\addspace
+  \let\UrlFont\normalfont
   \ifhyperref
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
     {\nolinkurl{#1}}}
@@ -201,14 +202,14 @@
     {\usebibmacro{name:delim}{#3#1}%
      \usebibmacro{name:hook}{#3#1}%
      \ifblank{#3}{}
-       {\mkbibnameprefix{\MakeCapital{#3}\isdot}%
+       {\mkbibnameprefix{#3\isdot}%
         \ifpunctmark{'}{}{\addhighpenspace}}%
      \mkbibnamelast{#1\isdot}%
      \ifblank{#2}{}
        {\addcomma\addlowpenspace
         \mkbibnamefirst{#2}\isdot}%
      \ifblank{#4}{}
-       {\addcomma\addlowpenspace
+       {\addlowpenspace
         \mkbibnameaffix{#4}\isdot}}
     {\usebibmacro{name:delim}{#1}%
      \usebibmacro{name:hook}{#1}%
@@ -219,10 +220,10 @@
         \mkbibnamefirst{#2}\isdot}%
      \ifblank{#3}{}
        {\addlowpenspace
-        \mkbibnameprefix{#3}\isdot}}%
+        \mkbibnameprefix{#3}\isdot}%
      \ifblank{#4}{}
-       {\addcomma\addlowpenspace
-        \mkbibnameaffix{#4}\isdot}} 
+       {\addlowpenspace
+        \mkbibnameaffix{#4}\isdot}}} 
 
 \newbibmacro*{organization+location+year}{%
   \printlist{organization}%
@@ -666,8 +667,6 @@
   \printfield{year}%
   \newunit
   \usebibmacro{chapter+pages}%
-  \newunit
-  \printfield{pagetotal}%
   \newunit
   \printfield{addendum}%
   \newunit
