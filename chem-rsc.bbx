@@ -1,5 +1,5 @@
 \ProvidesFile{chem-rsc.bbx}
-[\abx@bbxid $Id: chem-rsc.bbx,v 0.9 2010/02/16
+[\abx@bbxid $Id: chem-rsc.bbx,v 0.9a 2010/03/26
  09:00:00 joseph beta $]
 
 
@@ -12,6 +12,7 @@
 
 \providebool{bbx:articletitle}
 \providebool{bbx:chaptertitle}
+\providebool{bbx:doi}
 \providebool{bbx:pageranges}
 \providebool{bbx:subentry}
 \DeclareBibliographyOption{articletitle}[true]{%
@@ -34,6 +35,8 @@
     \DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}%
   \fi
 }
+\DeclareBibliographyOption{doi}[true]{%
+  \setbool{bbx:doi}{#1}}
 \DeclareBibliographyOption{pageranges}[true]{%
   \setbool{bbx:pageranges}{#1}}
 \DeclareBibliographyOption{subentry}[true]{%
@@ -272,7 +275,15 @@
 \newbibmacro*{pages/doi}{%
   \iffieldundef{pages}
     {\printfield{doi}}
-    {\printfield{pages}}}
+    {%
+      \printfield{pages}}%
+      \ifbool{bbx:doi}
+        {%
+          \setunit*{\adddot\addspace}%
+          \printfield{doi}%
+        }
+        {}%
+    }
     
 \newbibmacro*{publisher+location}{%
   \printlist{publisher}%

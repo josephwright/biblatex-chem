@@ -10,15 +10,16 @@
   % articletitle,     % To include article titles
   % biblabel=dot,     % Alter bibliography labels
   % chaptertitle,     % Include chapter titles for parts of books
+  % doi,              % Always include DOI for articles
   % pageranges=false, % Only include first page of a range
   % subentry,         % For (a), (b), etc. in sets
-  hyperref
+  hyperref,
   ]{biblatex}
 \usepackage[
   colorlinks,
   linkcolor=black,
   urlcolor=black,
-  citecolor=black
+  citecolor=black,
   ]{hyperref}
 \bibliography{biblatex-chem}
 
@@ -28,18 +29,14 @@
 
 This style prints numeric citations with bibliography
 formatting following the rules of the American Chemical Society,
-as outlined in \emph{The ACS Style Guide} \cite{Coghill2006}.
+as outlined in \emph{The ACS Style Guide}.\footfullcite{Coghill2006}
 This applies to journals such as \emph{Journal of the American
 Chemical Society}, \emph{The Journal of Organic Chemistry}
 and \emph{Organometallics}.  Some journals published by the ACS
 use superscript citations and some do not: read the package
 documentation for more details. With settings for citations as 
 given, the citations will be superscript and punctuation will be
-moved before citations, for example \autocite{Kabbe1973} or
+moved before citations, for example.\footfullcite{Kabbe1973} or
 \autocite{Arduengo1991}.
-
-\nocite{*}
-
-\printbibliography
 
 \end{document}

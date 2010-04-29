@@ -15,10 +15,10 @@
 \makeatother
 \title{The \textsf{biblatex-chem} bundle --- 
   \textsf{biblatex} styles for chemistry%
-  \thanks{Describes version v0.9, released 2010/02/16}}
+  \thanks{Describes version v0.9a, released 2010/03/26}}
 \author{Joseph Wright%
   \thanks{E-mail: joseph.wright@morningstar2.co.uk}}
-\date{Released 2010/02/16}
+\date{Released 2010/03/26}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -151,6 +151,18 @@ the inclusion of chapter titles if required.
 \usepackage[
   style=chem-rsc,
   chaptertitle
+  ]{biblatex}
+\end{verbatim}
+
+\DescribeOption{doi}
+When a journal article has no pages but does have a DOI the later used
+in the bibliography. Some journal styles require that the DOI is 
+included in all cases. This behaviour can be turned on by setting the
+\texttt{doi} option.
+\begin{verbatim}
+\usepackage[
+  style=chem-angew,
+  doi
   ]{biblatex}
 \end{verbatim}
 
