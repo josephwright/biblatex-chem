@@ -217,11 +217,12 @@
     {}
     {\printtext[journaltitle]{%
        \printfield[titlecase]{journaltitle}%
-%       \setunit{\subtitlepunct}%
-       \printfield[titlecase]{journalsubtitle}}}}
+       \printfield[titlecase]{journalsubtitle}}}%
+     \midsentence 
+    }
     
 \newbibmacro*{journal+volume}{%
-  \printfield{journal}%
+  \usebibmacro{journal}%
   \newunit
   \printfield{year}%
   \newunit
