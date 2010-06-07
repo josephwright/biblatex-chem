@@ -1,5 +1,5 @@
 \ProvidesFile{chem-angew.bbx}
-[2010/05/07 v0.9c biblatex bibliography style]
+[2010/06/07 v0.9e biblatex bibliography style]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
 
@@ -182,7 +182,8 @@
 
 \renewbibmacro*{byholder}{%
   \setunit{\addspace}%
-  \printtext[parens]{\printnames{holder}}}
+  \ifnameundef{holder}{}
+    {\printtext[parens]{\printnames{holder}}}}
   
 \newbibmacro*{chapter+pages}{%
   \printfield{chapter}%
