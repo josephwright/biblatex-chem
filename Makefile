@@ -60,7 +60,8 @@ AUXFILES = \
 	log  \
 	out  \
 	tmp  \
-	toc  
+	toc  \
+	xml
 		
 CLEAN = \
 	gz  \
