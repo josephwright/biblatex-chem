@@ -1,5 +1,5 @@
 \ProvidesFile{chem-rsc.bbx}
-[2010/06/07 v0.9e biblatex bibliography style]
+[2010/10/11 v0.9f biblatex bibliography style]
 
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
@@ -653,6 +653,8 @@
        \printfield[bibentrysetcount]{entrysetcount}%
        \setunit*{\addnbspace}}{}}
     {\entryset{}{}}
+  \setunit{\addperiod\addspace}%  
+  \usebibmacro{setpageref}%  
   \finentry}
   
 \DeclareBibliographyDriver{thesis}{%

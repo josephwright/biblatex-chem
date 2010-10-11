@@ -1,5 +1,5 @@
 \ProvidesFile{chem-acs.bbx}
-[2010/06/07 v0.9e biblatex bibliography style]
+[2010/10/11 v0.9f biblatex bibliography style]
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=15,urldate=long}
 
@@ -612,6 +612,8 @@
        \printfield[bibentrysetcount]{entrysetcount}%
        \setunit*{\addnbspace}}{}}
     {\entryset{}{}}
+  \setunit{\addperiod\addspace}%  
+  \usebibmacro{setpageref}%  
   \finentry}
   
 \DeclareBibliographyDriver{proceedings}{%
