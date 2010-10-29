@@ -38,7 +38,7 @@
   rem parts. AUXFILES are deleted after each (La)TeX run, CLEAN only
   rem when the user calls "make clean"
 
-  set AUXFILES=aux bbl blg log out toc
+  set AUXFILES=aux bbl blg log out toc xml
   set CLEAN=pdf zip
 
   rem The file types for inclusion in the archive files: note that a CTAN
