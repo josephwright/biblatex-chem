@@ -49,7 +49,8 @@ PACKAGEROOT := latex/$(PACKAGE)
 AUXFILES = \
 	aux  \
 	bbl  \
-	blg \
+	bcf \
+	blg  \
 	cmds \
 	glo  \
 	gls  \
