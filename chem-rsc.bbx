@@ -1,5 +1,5 @@
 \ProvidesFile{chem-rsc.bbx}
-[2010/11/20 v1.0 biblatex bibliography style]
+[2010/12/22 v1.0a biblatex bibliography style]
 
 
 \ExecuteBibliographyOptions{labelnumber,maxnames=999}
@@ -263,6 +263,18 @@
     {\usebibmacro{title}}
     {\usebibmacro{maintitle}}%
   \newunit}
+  
+\renewbibmacro*{name:andothers}{%
+  \ifboolexpr{
+    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
+    and
+    test \ifmorenames
+  }
+    {\ifnumgreater{\value{liststop}}{1}
+       {\finalandcomma}
+       {}%
+     \andothersdelim\mkbibemph{\bibstring{andothers}}}
+    {}}
   
 \newbibmacro*{organization+location+year}{%
   \printlist{organization}%
