@@ -72,9 +72,9 @@ CLEAN = \
 	txt \
 	zip 
 
-DOCS     = biblatex-chem
-STYLES   = chem-acs chem-angew chem-biochem chem-rsc
-TDS      = latex/$(PACKAGE)
+DOCS   = biblatex-chem
+STYLES = chem-acs chem-angew chem-biochem chem-rsc
+TDS    = latex/$(PACKAGE)
 
 # Even if files exist, use the rules here
 
@@ -119,6 +119,7 @@ doc:
 	echo "Compling documents"
 	for I in $(DOCS) ; do \
 	  pdflatex -draftmode -interaction=nonstopmode $$I &> /dev/null ; \
+	  makeindex -s gglo.ist -o $$NAME.gls $$NAME.glo &> /dev/null ; \
 	  bibtex8 --wolfgang $$I               &> /dev/null ; \
 	  pdflatex -nonstopmode $$I            &> /dev/null ; \
 	  rm -rf $$I-blx.bib                                ; \

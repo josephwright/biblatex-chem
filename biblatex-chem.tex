@@ -1,18 +1,23 @@
-\documentclass[a4paper]{article}
-\usepackage{lmodern,mathpazo,courier,helvet,multicol}
+\documentclass[a4paper]{ltxdoc}
+\usepackage{csquotes,lmodern,mathpazo,courier,helvet,multicol}
 \usepackage[style=chem-rsc,hyperref]{biblatex}
-\usepackage[colorlinks]{hyperref}
+\usepackage{hypdoc}
+
 \bibliography{biblatex-chem}
-\reversemarginpar
+
 \makeatletter
-\newcommand*{\DescribeOption}[1]{%
+\newcommand*\DescribeOption[1]{%
   \leavevmode
   \@bsphack
   \marginpar{\texttt{#1}}%
   \@esphack
   \ignorespaces
 }
+\providecommand*\pkg[1]{\textsf{#1}}
 \makeatother
+
+\RecordChanges
+
 \title{The \textsf{biblatex-chem} bundle --- 
   \textsf{biblatex} styles for chemistry%
   \thanks{Describes version v1.0b, released 2011/01/10}}
@@ -226,5 +231,16 @@ in the
 {BibBucket database}
 
 \printbibliography
+
+\changes{{v1.0}2010/11/20}{First stable release}
+\changes{v1.0a}{2010/12/22}{Format \enquote{\emph{et al.}}~in italics
+  when using \texttt{chem-rsc} style}
+\changes{v1.0b}{2011/01/10}{Require \pkg{biblatex} v1.1}
+\changes{v1.0b}{2011/01/10}{Use new \texttt{maxbibnames} option such
+  that bibliographies print all authors but citations use truncated
+  lists when necessary}
+\changes{v1.0c}{2011/01/11}{Add version history for stable releases}
+
+\PrintChanges
 
 \end{document}
