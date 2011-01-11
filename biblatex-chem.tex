@@ -6,6 +6,7 @@
 \bibliography{biblatex-chem}
 
 \makeatletter
+\renewcommand*\BibTeX{BibTeX}
 \newcommand*\DescribeOption[1]{%
   \leavevmode
   \@bsphack
@@ -31,7 +32,7 @@ The \textsf{biblatex-chem} bundle is a set of styles for
 creating bibliographies using \textsf{biblatex} in the style of
 a number common chemistry journals.  The bundle comprises styles
 based on the conventions of the Royal Society of Chemistry, 
-American Chemical Society and 	\emph{Angewandte Chemie}. It
+American Chemical Society and \emph{Angewandte Chemie}. It
 therefore covers the journal styles of, for example:
 \begin{itemize}
   \item \emph{Angewandte Chemie}
@@ -50,20 +51,20 @@ amongst others.
 \end{multicols}
 
 \section{Introduction}
-The \textsf{biblatex} package introduces a completely new method
+The \pkg{biblatex} package introduces a completely new method
 for controlling the creation of bibliographies using
-\textsf{bibtex}. This makes a great deal of flexibility 
+\BibTeX. This makes a great deal of flexibility 
 available when creating bibliographies, most of which is much 
-more difficult with traditional \textsf{bibtex} styles.
+more difficult with traditional \BibTeX\ styles.
 
-In order to use \textsf{biblatex}, an entirely new set of 
+In order to use \pkg{biblatex}, an entirely new set of 
 appropriate supporting styles are needed. This bundle provides a
 number of styles for chemistry, following the rules of some of 
 the most important journals in the field. 
 
 \section{The styles}
 
-Currently, the bundle contains four \textsf{biblatex} styles:
+Currently, the bundle contains four \pkg{biblatex} styles:
 \begin{itemize}
   \item \texttt{chem-acs}: American Chemical Society style
   \item \texttt{chem-angew}: \emph{Angewandte Chemie} style
@@ -81,11 +82,11 @@ Chemical Society and the Royal Society of Chemistry, plus
 the journals published by Wiley which use the \emph{Angewandte
 Chemie} format.
 
-The styles use the standard \textsf{biblatex} database 
+The styles use the standard \pkg{biblatex} database 
 requirements, although they are somewhat selective in which
 fields are used (for example, \texttt{language} is never 
 printed).  This means that a database designed for traditional
-\textsf{biblatex} use may need some editing for optimal output.
+\pkg{biblatex} use may need some editing for optimal output.
 The accompanying example database \texttt{biblatex-chem.bib} 
 shows examples of all of the supported entry types with common
 fields filled in.
@@ -93,7 +94,7 @@ fields filled in.
 \section{Style options}
 
 All of the styles here add a small number of package options to 
-the standard set provided by \textsf{biblatex}. This allows 
+the standard set provided by \pkg{biblatex}. This allows 
 the styles to cover the variations seen between different 
 journals without needing a very large number of files: the 
 American Chemical Society in particular varies the exact details
@@ -184,7 +185,7 @@ journals.
 \end{verbatim}
 
 \DescribeOption{subentry}
-In common with the standard \textsf{biblatex} numeric styles, 
+In common with the standard \pkg{biblatex} numeric styles, 
 all of the styles here support the \texttt{subentry} option. 
 With this turned on, entries of type \texttt{set} are given 
 individual labels within the bibliography.  
@@ -209,14 +210,14 @@ The current set of styles here is intended to form a strong base
 for chemists.  However, there will be the need for other styles
 to be created. The package author welcomes suggestions for other
 styles for inclusion.  It would also be good to keep all 
-chemistry-related \textsf{biblatex} styles in one bundle. Others
-working on chemistry styles for \textsf{biblatex} are welcome to
+chemistry-related \pkg{biblatex} styles in one bundle. Others
+working on chemistry styles for \pkg{biblatex} are welcome to
 send them to the bundle maintainer so they can be incorporated 
 here.
 
 \section{Errors and omissions}
 
-Creating a \textsf{biblatex} style is a complex task, 
+Creating a \pkg{biblatex} style is a complex task, 
 particularly as chemistry journals only give complete rules
 for the layout of references to journal articles.  The 
 examples and test database provided with this bundle should be
