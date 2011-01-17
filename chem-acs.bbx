@@ -309,11 +309,13 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\addspace}
   \ifbool{bbx:articletitle}
-    {\usebibmacro{title}}
+    {%
+      \usebibmacro{title}%
+      \setunit{\addspace}%
+    }
     {}%
-  \setunit{\addspace}%
   \usebibmacro{journal+volume}%
   \setunit{\addspace}%
   \printfield{note}%
