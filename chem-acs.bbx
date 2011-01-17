@@ -62,6 +62,7 @@
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{shorthandwidth}{\mkbibbrackets{#1}}
 \DeclareFieldFormat*{title}{#1\adddot}
+\DeclareFieldFormat[book]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat[inproceedings]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat{url}{\let\UrlFont\normalfont\url{#1}}
 \DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
