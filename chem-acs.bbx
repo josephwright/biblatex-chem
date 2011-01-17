@@ -61,11 +61,8 @@
 \DeclareFieldFormat{part}{Part\addspace#1}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{shorthandwidth}{\mkbibbrackets{#1}}
-\DeclareFieldFormat[article]{title}{#1\adddot}
-\DeclareFieldFormat[thesis]{title}{#1\adddot}
+\DeclareFieldFormat*{title}{#1\adddot}
 \DeclareFieldFormat[inproceedings]{title}{\mkbibemph{#1}}
-\DeclareFieldFormat[online]{title}{#1\adddot}
-\DeclareFieldFormat[patent]{title}{#1\adddot}
 \DeclareFieldFormat{url}{\let\UrlFont\normalfont\url{#1}}
 \DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
 \DeclareFieldFormat[periodical]{volume}{\bibstring{volume}~#1}
@@ -405,9 +402,11 @@
   \usebibmacro{author}%
   \setunit*{\addspace}%
   \ifbool{bbx:chaptertitle}
-    {\usebibmacro{title}}
+    {%
+      \usebibmacro{title}%
+      \setunit{\addspace}%
+    }
     {}%
-  \setunit*{\adddot\addspace}%
   \usebibmacro{in}%
   \usebibmacro{bybookauthor}%
   \setunit*{\addspace}%
@@ -438,9 +437,11 @@
   \usebibmacro{author}%
   \setunit*{\addspace}%
   \ifbool{bbx:chaptertitle}
-    {\usebibmacro{title}}
+    {%
+      \usebibmacro{title}%
+      \setunit{\addspace}%
+    }
     {}%
-  \setunit*{\adddot\addspace}%
   \usebibmacro{in}%
   \usebibmacro{maintitle/booktitle+edition}%
   \setunit{\addsemicolon\addspace}%
