@@ -1,5 +1,5 @@
 \ProvidesFile{chem-acs.bbx}
-[2011/01/17 v1.0d biblatex bibliography style]
+[2011/03/21 v1.0e biblatex bibliography style]
 
 \ExecuteBibliographyOptions{labelnumber,maxbibnames=15,urldate=long}
 
@@ -85,6 +85,7 @@
 \renewcommand*{\mkbibnameaffix}[1]{\addcomma\addspace#1}
 \renewcommand*{\multinamedelim}{\addsemicolon\addspace}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
+\renewcommand*{\labelnamepunct}{\addspace}
 
 % The environments are set up correctly
 
@@ -307,7 +308,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit{\addspace}
+  \setunit{\labelnamepunct}%
   \ifbool{bbx:articletitle}
     {%
       \usebibmacro{title}%
@@ -329,7 +330,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \usebibmacro{maintitle/title+edition}%
   \setunit{\addsemicolon\addspace}%
   \ifnameundef{editor}
@@ -355,7 +356,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \usebibmacro{title}%
   \setunit{\addsemicolon\addspace}%
   \printfield{howpublished}%
@@ -401,7 +402,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \ifbool{bbx:chaptertitle}
     {%
       \usebibmacro{title}%
@@ -437,7 +438,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \ifbool{bbx:chaptertitle}
     {%
       \usebibmacro{title}%
@@ -471,7 +472,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \bibsentence
   \usebibmacro{in}%
   \printfield{booktitle}%
@@ -495,7 +496,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{edition}%
@@ -523,7 +524,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \usebibmacro{title}%
   \setunit{\addsemicolon\addspace}%
   \printfield{howpublished}%
@@ -549,7 +550,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit{\addspace}%
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \setunit{\addspace}%
   \usebibmacro{url+urldate}%
@@ -565,7 +566,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit{\addspace}%
+  \setunit{\labelnamepunct}%
   \usebibmacro{byholder}%
   \setunit*{\adddot\addspace}%
   \usebibmacro{title}%
@@ -589,7 +590,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \printfield{issuetitle}%
   \setunit{\addsemicolon\addspace}%
   \ifnameundef{editor}
@@ -647,7 +648,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \usebibmacro{title}%
   \setunit{\addsemicolon\addspace}%
   \printfield{type}%
@@ -679,7 +680,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \printfield{title}%
   \setunit{\adddot\addspace}%
   \printfield{note}%
@@ -705,7 +706,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\addspace}%
+  \setunit*{\labelnamepunct}%
   \printfield{journaltitle}%
   \newunit
   \printfield{howpublished}%

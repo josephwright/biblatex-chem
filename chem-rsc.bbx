@@ -1,6 +1,5 @@
 \ProvidesFile{chem-rsc.bbx}
-[2011/01/17 v1.0d biblatex bibliography style]
-
+[2011/03/21 v1.0e biblatex bibliography style]
 
 \ExecuteBibliographyOptions{labelnumber,maxbibnames=999}
 
@@ -83,6 +82,7 @@
 \renewcommand*{\thelositem}{\item}
 \renewcommand*{\mkbibnameaffix}[1]{\addcomma\addspace#1}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
+\renewcommand*{\labelnamepunct}{\newunitpunct}
 
 % The environments are set up correctly
 
@@ -321,7 +321,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \ifbool{bbx:articletitle}
     {\usebibmacro{title}%
      \newunit}
@@ -341,7 +341,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{maintitle/title}%
   \newunit
   \usebibmacro{editor}%
@@ -363,7 +363,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{howpublished}%
@@ -409,7 +409,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \ifbool{bbx:chaptertitle}
     {\usebibmacro{title}%
      \newunit}
@@ -442,7 +442,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \ifbool{bbx:chaptertitle}
     {\usebibmacro{title}%
      \newunit}
@@ -473,7 +473,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \printfield{booktitle}%
   \newunit
   \usebibmacro{editor}%
@@ -495,7 +495,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{edition}%
@@ -523,7 +523,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{howpublished}%
@@ -549,7 +549,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{version}%
@@ -571,7 +571,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \printfield{type}%
   \newunit
   \printfield{number}%
@@ -639,7 +639,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \usebibmacro{title}%
   \newunit
   \printfield{type}%
@@ -673,7 +673,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \printfield{note}%
   \newunit
   \printfield{type}%
@@ -693,7 +693,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit
+  \setunit{\labelnamepunct}%
   \printfield{journaltitle}%
   \newunit
   \printfield{howpublished}%
