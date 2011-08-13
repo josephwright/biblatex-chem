@@ -18,6 +18,24 @@
     autopunct = true       ,
     sorting   = none
   }
+  
+\newcommand*\mkbibsuperbracket[1]{%
+  \mkbibsuperscript{\mkbibbrackets{#1}}%
+}
+  
+\DeclareCiteCommand{\supercite}[\mkbibsuperbracket]
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim
+   \iffieldundef{prenote}
+     {}
+     {\BibliographyWarning{Ignoring prenote argument}}%
+   \iffieldundef{postnote}
+     {}
+     {\BibliographyWarning{Ignoring postnote argument}}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  {}
+  {\usebibmacro{cite:dump}}
 
 %% 
 %% Copyright (C) 2010,2011 by
