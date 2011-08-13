@@ -1,24 +1,44 @@
-\ProvidesFile{chem-angew.cbx}
-[2011/03/21 v1.0e biblatex citation style]
+%% ---------------------------------------------------------------
+%% biblatex-chem --- A set of biblatex implementation for
+%%   chemistry-related bibliography styles
+%% Maintained by Joseph Wright
+%% E-mail: joseph.wright@morningstar2.co.uk
+%% Released under the LaTeX Project Public License v1.3c or later
+%% See http://www.latex-project.org/lppl.txt
+%% ---------------------------------------------------------------
+%% 
+
+\ProvidesFile{chem-angew.cbx}[2011/08/12 v1.1 biblatex citation style]
 
 \RequireCitationStyle{numeric-comp}
-\ExecuteBibliographyOptions{%
-  autocite=superscript,autopunct=true,sorting=none}
-  
-\DeclareCiteCommand{\supercite}[\mkbibsuperscript]
-  {\usebibmacro{cite:init}%
-   \let\multicitedelim=\supercitedelim
-   \iffieldundef{prenote}
-     {}
-     {\BibliographyWarning{Ignoring prenote argument}}%
-   \iffieldundef{postnote}
-     {}
-     {\BibliographyWarning{Ignoring postnote argument}}%
-   \bibleftbracket}
-  {\usebibmacro{citeindex}%
-   \usebibmacro{cite:comp}}
-  {}
-  {\usebibmacro{cite:dump}%
-   \bibrightbracket}
 
-\endinput
+\ExecuteBibliographyOptions
+  {
+    autocite  = superscript,
+    autopunct = true       ,
+    sorting   = none
+  }
+
+%% 
+%% Copyright (C) 2010,2011 by
+%%   Joseph Wright <joseph.wright@morningstar2.co.uk>
+%% 
+%% It may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License (LPPL), either version 1.3c of
+%% this license or (at your option) any later version.  The latest
+%% version of this license is in the file:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%%   Joseph Wright.
+%% 
+%% This work consists of the files biblatex-chem.bib,
+%%                                 biblatex-chem.tex,
+%%                                 chem-angew.bbx and
+%%                                 chem-angew.cbx,
+%%           and the derived files biblatex-chem.pdf and
+%%                                 chem-angew.pdf
+%% 
+%%
+%% End of file `chem-angew.cbx'.
