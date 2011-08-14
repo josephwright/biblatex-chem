@@ -41,6 +41,7 @@
 
 % Custom field formats 
 \DeclareFieldFormat[inproceedings]{booktitle}{#1}
+\DeclareFieldFormat{date}{\mkbibbold{#1}}
 \DeclareFieldFormat{doi}{%
   DOI\space
   \ifhyperref
@@ -102,7 +103,7 @@
     {\printtext[parens]{\printnames{holder}}}%
 }
   
-\renewbibmacro*{date}{\mkbibbold{\printdate}}
+\renewbibmacro*{date}{\printtext[date]{\printdate}}
 
 \renewbibmacro*{event+venue+date}{%
   \printfield{eventtitle}%
