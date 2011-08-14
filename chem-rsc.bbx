@@ -26,8 +26,9 @@
 % Alter settings that carry through from biblatex
 \ExecuteBibliographyOptions
   {
-    firstinits = true   ,
-    maxnames   = 999    ,
+    doi        = false ,
+    firstinits = true  ,
+    maxnames   = 999   ,
     pageranges
   }
 
@@ -141,6 +142,22 @@
   \newunit
 }
 
+\renewbibmacro*{note+pages}{%
+  \printfield{note}%
+  \setunit{\bibpagespunct}%
+  \printfield{pages}%
+  \iffieldundef{pages}
+    {%
+      \printfield{doi}%
+      \clearfield{doi}%
+    }%
+    {%
+      \iftoggle{bbx:doi}
+        {}
+        {\clearfield{doi}}%
+    }%
+}
+
 \renewbibmacro*{publisher+location+date}{%
   \printlist{publisher}%
   \newunit
@@ -242,9 +259,7 @@
     {\printfield{issn}}
     {}%
   \newunit\newblock
-  \iffieldundef{pages}
-    {\usebibmacro{doi+eprint+url}}
-    {}%
+  \usebibmacro{doi+eprint+url}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \setunit{\bibpagerefpunct}\newblock
