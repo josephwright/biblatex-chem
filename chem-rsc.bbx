@@ -26,10 +26,11 @@
 % Alter settings that carry through from biblatex
 \ExecuteBibliographyOptions
   {
-    doi        = false ,
-    firstinits = true  ,
-    maxnames   = 999   ,
-    pageranges = true
+    doi          = false ,
+    firstinits   = true  ,
+    maxnames     = 999   ,
+    maxcitenames = 2     ,
+    pageranges   = true
   }
 
 % Modify the name format
@@ -68,10 +69,10 @@
 
 % Bibliography strings
 \DefineBibliographyStrings{english}{%
-  chapter   = ch\adddot               ,
-  edition   = edn\adddot              ,
-  patentus  = US Pat\adddot           ,
-  phdthesis = Ph.D\adddot\space Thesis
+  chapter   = ch\adddot          ,
+  edition   = edn\adddot         ,
+  patentus  = US Pat\adddot      ,
+  phdthesis = Ph.D.\space Thesis
 }
 
 % Bibliography macros
