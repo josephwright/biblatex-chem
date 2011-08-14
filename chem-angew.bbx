@@ -1,5 +1,5 @@
 %% ---------------------------------------------------------------
-%% biblatex-chem --- A set of biblatex implementation for
+%% biblatex-chem --- A set of biblatex implementations of
 %%   chemistry-related bibliography styles
 %% Maintained by Joseph Wright
 %% E-mail: joseph.wright@morningstar2.co.uk
@@ -8,7 +8,7 @@
 %% ---------------------------------------------------------------
 %% 
 
-\ProvidesFile{chem-angew.bbx}[2011/08/12 v1.1 biblatex bibliography style]
+\ProvidesFile{chem-angew.bbx}[2011/08/14 v1.1 biblatex bibliography style]
 
 % Load the standard style to avoid copy-pasting unnecessary material
 \RequireBibliographyStyle{numeric-comp}
@@ -51,6 +51,7 @@
     {\mkbibemph{\bibstring{#1}}}
     {\mkbibemph{#1}}%
 }
+\DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat*{volume}{%
   \mkbibemph{\bibstring{volume}~#1}%
 }
