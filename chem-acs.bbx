@@ -47,6 +47,7 @@
 }
 
 % Custom field formats 
+\DeclareFieldFormat[article]{date}{\mkbibbold{#1}}
 \DeclareFieldFormat{doi}{%
   DOI\addcolon\space
   \ifhyperref
@@ -82,6 +83,8 @@
 }
 
 % Bibliography macros
+\renewbibmacro*{date}{\printtext[date]{\printdate}}
+
 \newbibmacro*{journal+issuetitle}{%
   \usebibmacro{journal}%
   \setunit*{\addspace}%
