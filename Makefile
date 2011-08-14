@@ -87,7 +87,7 @@ clean:
       rm -rf *.$$I ; \
 	done
 	for I in $(STYLES) ; do \
-	  rm -rf style-$$I-blx.bib ; \
+	  rm -rf biblatex-$$I-blx.bib ; \
 	done 
 
 ctan: tds
@@ -105,8 +105,8 @@ ctan: tds
 	for I in $(STYLES) ; do \
 	  cp $$I.bbx tmp/$(PACKAGE)/latex/bbx/          ; \
 	  cp $$I.cbx tmp/$(PACKAGE)/latex/cbx/          ; \
-	  cp style-$$I.pdf tmp/$(PACKAGE)/doc/examples/ ; \
-	  cp style-$$I.tex tmp/$(PACKAGE)/doc/examples/ ; \
+	  cp biblatex-$$I.pdf tmp/$(PACKAGE)/doc/examples/ ; \
+	  cp biblatex-$$I.tex tmp/$(PACKAGE)/doc/examples/ ; \
 	done
 	cp README tmp/$(PACKAGE)
 	cp README tmp/$(PACKAGE)/doc
@@ -125,10 +125,10 @@ doc:
 	  rm -rf $$I-blx.bib                                ; \
 	done
 	for I in $(STYLES) ; do \
-	  pdflatex -draftmode -interaction=nonstopmode style-$$I &> /dev/null ; \
-	  bibtex8 --wolfgang style-$$I               &> /dev/null ; \
-	  pdflatex -interaction=nonstopmode style-$$I            &> /dev/null ; \
-	  rm -rf style-$$I-blx.bib                                ; \
+	  pdflatex -draftmode -interaction=nonstopmode biblatex-$$I &> /dev/null ; \
+	  bibtex8 --wolfgang biblatex-$$I               &> /dev/null ; \
+	  pdflatex -interaction=nonstopmode biblatex-$$I            &> /dev/null ; \
+	  rm -rf biblatex-$$I-blx.bib                                ; \
 	done
 	for I in $(AUXFILES) ; do \
 	  rm -rf *.$$I ; \
@@ -160,8 +160,8 @@ tds: doc
 	for I in $(STYLES) ; do \
 	  cp $$I.bbx tds/tex/$(TDS)/bbx/            ; \
 	  cp $$I.cbx tds/tex/$(TDS)/cbx/            ; \
-	  cp style-$$I.pdf tds/doc/$(TDS)/examples/ ; \
-	  cp style-$$I.tex tds/doc/$(TDS)/examples/ ; \
+	  cp biblatex-$$I.pdf tds/doc/$(TDS)/examples/ ; \
+	  cp biblatex-$$I.tex tds/doc/$(TDS)/examples/ ; \
 	done
 	cp README tds/doc/$(TDS)/
 	cd tds ; \
