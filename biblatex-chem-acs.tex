@@ -38,7 +38,8 @@
 \maketitle
 
 This package provides a style for \pkg{biblatex} which follows the
-guidelines of the American Chemical Society. The citation style is numeric
+guidelines of the American Chemical Society \autocite{Coghill2006}.
+The citation style is numeric
 and unsorted. The bibliography style follows the pattern of the layout
 used in the journal \emph{Journal of the American Chemical Society}. The
 style should be loaded in the usual way
@@ -53,6 +54,13 @@ of example citations.
 The use of article titles varies between individual journals. The
 boolean option \opt{articletitle} is available is control this behaviour,
 and is set \opt{false} as standard.
+
+\DescribeOption{chaptertitle}
+\citetitle{Coghill2006} leaves open the choice of whether to include the
+title for chapters when part of a book is cited. The option boolean
+\opt{chaptertitle} option is provided to allow flexiblity in this behaviour:
+the standard setting follows \emph{Journal of the American Chemical Society}
+and does not include chapter titles.
 
 \DescribeOption{pageranges}
 The use of full page ranges varies between journals and indeed between
