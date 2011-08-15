@@ -94,19 +94,18 @@ ctan: tds
 	echo "Making CTAN zip file"
 	mkdir -p tmp/
 	rm -rf tmp/*
-	mkdir -p tmp/$(PACKAGE)/latex/bbx
-	mkdir -p tmp/$(PACKAGE)/latex/cbx
-	mkdir -p tmp/$(PACKAGE)/doc/examples
+	mkdir -p tmp/$(PACKAGE)/latex/
+	mkdir -p tmp/$(PACKAGE)/doc/
 	for I in $(DOCS) ; do \
-	  cp $$I.bib tmp/$(PACKAGE)/doc/examples/ ; \
-	  cp $$I.pdf tmp/$(PACKAGE)/doc/          ; \
-	  cp $$I.tex tmp/$(PACKAGE)/doc/          ; \
+	  cp $$I.bib tmp/$(PACKAGE)/doc/ ; \
+	  cp $$I.pdf tmp/$(PACKAGE)/doc/ ; \
+	  cp $$I.tex tmp/$(PACKAGE)/doc/ ; \
 	done
 	for I in $(STYLES) ; do \
-	  cp $$I.bbx tmp/$(PACKAGE)/latex/bbx/          ; \
-	  cp $$I.cbx tmp/$(PACKAGE)/latex/cbx/          ; \
-	  cp biblatex-$$I.pdf tmp/$(PACKAGE)/doc/examples/ ; \
-	  cp biblatex-$$I.tex tmp/$(PACKAGE)/doc/examples/ ; \
+	  cp $$I.bbx tmp/$(PACKAGE)/latex/        ; \
+	  cp $$I.cbx tmp/$(PACKAGE)/latex/        ; \
+	  cp biblatex-$$I.pdf tmp/$(PACKAGE)/doc/ ; \
+	  cp biblatex-$$I.tex tmp/$(PACKAGE)/doc/ ; \
 	done
 	cp README tmp/$(PACKAGE)
 	cp README tmp/$(PACKAGE)/doc
@@ -120,7 +119,6 @@ doc:
 	for I in $(DOCS) ; do \
 	  pdflatex -draftmode -interaction=nonstopmode $$I &> /dev/null ; \
 	  makeindex -s gglo.ist -o $$NAME.gls $$NAME.glo &> /dev/null ; \
-	  bibtex8 --wolfgang $$I               &> /dev/null ; \
 	  pdflatex -nonstopmode $$I            &> /dev/null ; \
 	  rm -rf $$I-blx.bib                                ; \
 	done
@@ -139,29 +137,27 @@ localinstall:
 	TEXMFHOME=`kpsewhich --var-value=TEXMFHOME` ; \
 	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT) ; \
 	rm -rf $$TEXMFHOME/tex/$(PACKAGEROOT)/* ; \
-	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT)/bbx ; \
-	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT)/cbx ; \
-	cp *.bbx $$TEXMFHOME/tex/$(PACKAGEROOT)/bbx/ ; \
-	cp *.cbx $$TEXMFHOME/tex/$(PACKAGEROOT)/cbx/ ; \
+	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT) ; \
+	cp *.bbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
+	cp *.cbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
 	texhash &> /dev/null
 	
 tds: doc
 	echo "Making TDS structure"
 	mkdir -p tds/
 	rm -rf tds/*
-	mkdir -p tds/tex/$(TDS)/bbx
-	mkdir -p tds/tex/$(TDS)/cbx
-	mkdir -p tds/doc/$(TDS)/examples
+	mkdir -p tds/tex/$(TDS)
+	mkdir -p tds/doc/$(TDS)
 	for I in $(DOCS) ; do \
-	  cp $$I.bib tds/doc/$(TDS)/examples/ ; \
-	  cp $$I.pdf tds/doc/$(TDS)/          ; \
-	  cp $$I.tex tds/doc/$(TDS)/          ; \
+	  cp $$I.bib tds/doc/$(TDS)/ ; \
+	  cp $$I.pdf tds/doc/$(TDS)/ ; \
+	  cp $$I.tex tds/doc/$(TDS)/ ; \
 	done
 	for I in $(STYLES) ; do \
-	  cp $$I.bbx tds/tex/$(TDS)/bbx/            ; \
-	  cp $$I.cbx tds/tex/$(TDS)/cbx/            ; \
-	  cp biblatex-$$I.pdf tds/doc/$(TDS)/examples/ ; \
-	  cp biblatex-$$I.tex tds/doc/$(TDS)/examples/ ; \
+	  cp $$I.bbx tds/tex/$(TDS)/            ; \
+	  cp $$I.cbx tds/tex/$(TDS)/            ; \
+	  cp biblatex-$$I.pdf tds/doc/$(TDS)/ ; \
+	  cp biblatex-$$I.tex tds/doc/$(TDS)/ ; \
 	done
 	cp README tds/doc/$(TDS)/
 	cd tds ; \
