@@ -117,16 +117,15 @@ ctan: tds
 doc:
 	echo "Compiling documents"
 	for I in $(DOCS) ; do \
-	  pdflatex -draftmode -interaction=nonstopmode $$I &> /dev/null ; \
-	  makeindex -s gglo.ist -o $$NAME.gls $$NAME.glo &> /dev/null ; \
-	  pdflatex -nonstopmode $$I            &> /dev/null ; \
+	  pdflatex -draftmode -interaction=nonstopmode $$I > /dev/null ; \
+	  makeindex -q -s gglo.ist -o $$I.gls $$I.glo > /dev/null ; \
+	  pdflatex -interaction=nonstopmode $$I > /dev/null ; \
 	  rm -rf $$I-blx.bib                                ; \
 	done
 	for I in $(STYLES) ; do \
-	  pdflatex -draftmode -interaction=nonstopmode biblatex-$$I &> /dev/null ; \
-	  bibtex8 --wolfgang biblatex-$$I &> /dev/null ; \
-	  makeindex -s gglo.ist -o biblatex-$$I.gls biblatex-$$I.glo &> /dev/null ; \
-	  pdflatex -interaction=nonstopmode biblatex-$$I            &> /dev/null ; \
+	  pdflatex -draftmode -interaction=nonstopmode biblatex-$$I > /dev/null ; \
+	  bibtex8 --wolfgang biblatex-$$I > /dev/null ; \
+	  pdflatex -interaction=nonstopmode biblatex-$$I            > /dev/null ; \
 	  rm -rf biblatex-$$I-blx.bib ; \
 	done
 	for I in $(AUXFILES) ; do \
@@ -141,7 +140,7 @@ localinstall:
 	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT) ; \
 	cp *.bbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
 	cp *.cbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
-	texhash &> /dev/null
+	texhash > /dev/null
 	
 tds: doc
 	echo "Making TDS structure"

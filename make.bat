@@ -122,7 +122,6 @@
   for %%I in (%STYLES%) do (
     echo biblatex-%%I
     pdflatex biblatex-%%I > nul
-    makeindex -q -s gglo.ist -o biblatex-%%I.gls biblatex-%%I.glo> nul
     bibtex8 --wolfgang biblatex-%%I > nul
     pdflatex biblatex-%%I > nul
   )
