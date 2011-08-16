@@ -33,39 +33,123 @@
 
 \maketitle
 
-The \pkg{biblatex-chem} bundle is a set of styles for creating bibliographies
-using \pkg{biblatex} in the style of a number common chemistry journals. The
-bundle comprises styles based on the conventions of the Royal Society of
-Chemistry, American Chemical Society and \emph{Angewandte Chemie}. It therefore
-covers the journal styles of, for example:
-\begin{itemize}
-  \item \emph{Angewandte Chemie}
-  \item \emph{Biochemistry}
-  \item \emph{Chemical Communications}
-  \item \emph{Chemistry~--~A European Journal}
-  \item \emph{Dalton Transactions}
-  \item \emph{Journal of the American Chemical Society}
-  \item \emph{Organic \& Biomolecular Chemistry}
-\end{itemize}
-amongst others.
+\begin{abstract}
+
+  The \pkg{biblatex-chem} bundle is a set of styles for creating bibliographies
+  using \pkg{biblatex} in the style of a number common chemistry journals. The
+  bundle comprises styles based on the conventions of the Royal Society of
+  Chemistry, American Chemical Society and \emph{Angewandte Chemie}. It
+  therefore covers the journal styles of, for example:
+  \begin{itemize}
+    \item \emph{Angewandte Chemie}
+    \item \emph{Biochemistry}
+    \item \emph{Chemical Communications}
+    \item \emph{Chemistry---A European Journal}
+    \item \emph{Dalton Transactions}
+    \item \emph{Journal of the American Chemical Society}
+    \item \emph{Organic \& Biomolecular Chemistry}
+  \end{itemize}
+  amongst others.
+\end{abstract}
+
+\section{Introduction}
+
+The \pkg{biblatex} package introduces a completely new method for controlling
+the creation of bibliographies using \BibTeX{}. This makes a great deal of
+flexibility available when creating bibliographies, most of which is much more
+difficult with traditional \BibTeX{} styles.
+
+In order to use \pkg{biblatex}, an entirely new set of appropriate supporting
+styles are needed. This bundle provides a number of styles for chemistry,
+following the rules of some of the most important journals in the field.
+
+\section{The styles}
 
 The bundle currently contains four \pkg{biblatex} style files, each of
-which has its own documentation:
+which has its own demonstration document:
 \begin{itemize}
-   \item The \href{file:biblatex-chem-acs.pdf}{\texttt{chem-acs}} style,
+   \item The \href{file:biblatex-chem-acs.pdf}{\pkg{chem-acs}} style,
      which covers most American Chemistry Society journals.
-   \item The \href{file:biblatex-chem-angew.pdf}{\texttt{chem-angew}} style,
+   \item The \href{file:biblatex-chem-angew.pdf}{\pkg{chem-angew}} style,
      which covers \emph{Angewandte Chemie}
      \emph{Chemistry~--~A European Journal}.
-   \item The \href{file:biblatex-chem-biochem.pdf}{\texttt{chem-biochem}}
+   \item The \href{file:biblatex-chem-biochem.pdf}{\pkg{chem-biochem}}
      style, which covers \emph{Biochemistry} and a small number of other
      American Chemistry Society journals.
-   \item The \href{file:biblatex-chem-rsc.pdf}{\texttt{chem-rsc}} style,
+   \item The \href{file:biblatex-chem-rsc.pdf}{\pkg{chem-rsc}} style,
      which covers all Royal Society of Chemistry journals.
 \end{itemize}
 
-Suggestions for improvement and bug reports can be logged in the package
-issue database, found at
+The four styles can be used to follow the current layout rules of all of the
+journals currently published by the American Chemical Society and the Royal
+Society of Chemistry, plus the journals published by Wiley which use the
+\emph{Angewandte Chemie} format.
+
+The styles use the standard \pkg{biblatex} database requirements. This means
+that a database designed for traditional \pkg{biblatex} use may need some
+editing for optimal output. The accompanying example database
+\texttt{biblatex-chem.bib} shows examples of all of the supported entry types
+with common fields filled in.
+
+\section{Style options}
+
+All of the styles here add a small number of package options to the standard
+set provided by \pkg{biblatex}. This allows the styles to cover the variations
+seen between different journals without needing a very large number of files:
+the American Chemical Society in particular varies the exact details between
+journals.
+
+\DescribeOption{doi}
+\DescribeOption{eprint}
+\DescribeOption{isbn}
+\DescribeOption{url}
+The standard style options \opt{doi}, \opt{eprint} \opt{isbn} and
+\opt{eprint}, as described in the \pkg{biblatex} manual. However, these
+options are turned off as standard by the styles in the \pkg{biblatex-chem}
+bundle. This reflects the fact that these entries may be present in reference
+databases but are not generally included in published bibliographies. Note
+that \textsc{doi} values are printed for journal articles with no pages
+given, even if the \opt{doi} option is \opt{false}
+
+\DescribeOption{subentry}
+In common with the standard \pkg{biblatex} numeric styles, all of the styles
+in the bundle support the boolean \texttt{subentry} option. With this set
+\opt{true}, entries of type \texttt{set} are given individual labels within
+the bibliography.
+
+\DescribeOption{articletitle}
+The use of article titles varies between individual journals. The
+boolean option \opt{articletitle} is available is control this behaviour.
+The standard settings for the \pkg{chem-acs}, \pkg{chem-angew}
+and \pkg{chem-rsc} styles have this option turned off, while the
+\pkg{chem-biochem} sets this option \opt{true}.
+
+\DescribeOption{chaptertitle}
+The option boolean \opt{chaptertitle} option is provided to allow flexibility
+for the inclusion of chapter titles for \texttt{inbook} and
+\texttt{incollection} entries. The standard setting is \opt{false} for all
+styles in the bundle.
+
+\DescribeOption{pageranges}
+The use of full page ranges varies between journals and indeed between
+different papers in individual journals. The \opt{pageranges} boolean option
+is available to turn on and off printing of full page ranges, thus allowing
+printing of only the first page even when the database contains the full
+page range. This option is set \opt{true} as standard.
+
+\section{New styles}
+
+The current set of styles here is intended to form a strong base for chemists.
+However, there will be the need for other styles to be created. The package
+author welcomes suggestions for other styles for inclusion. It would also be
+good to keep all chemistry-related \pkg{biblatex} styles in one bundle. Others
+working on chemistry styles for \pkg{biblatex} are welcome to send them to the
+bundle maintainer so they can be incorporated here.
+
+\section{Errors and omissions}
+
+Suggestions for improvement and bug reports can be logged in the package issue
+database, found at
 \url{https://bitbucket.org/josephwright/biblatex-chem/issues}, or can
 be sent by e-mail to 
 \href{mailto:joseph.wright@morningstar2.co.uk}
@@ -87,6 +171,8 @@ be sent by e-mail to
 \changes{v1.1a}{2011/08/16}{Turn off standard \opt{url} option by default}
 \changes{v1.1a}{2011/08/16}{Reintroduce \opt{chaptertitle} option for
   \texttt{chem-angew} and \texttt{chem-rsc} styles}
+\changes{v1.1a}{2011/08/16}{Turn off standard \opt{eprint}
+  and \opt{isbn} options by default}
 
 \PrintChanges
 
