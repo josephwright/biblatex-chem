@@ -15,9 +15,13 @@
 
 % New options
 \newtoggle{bbx:articletitle}
+\newtoggle{bbx:chaptertitle}
 \newtoggle{bbx:pageranges}
 \DeclareBibliographyOption{articletitle}[true]{%
   \settoggle{bbx:articletitle}{#1}%
+}
+\DeclareBibliographyOption{chaptertitle}[true]{%
+  \settoggle{bbx:chaptertitle}{#1}%
 }
 \DeclareBibliographyOption{pageranges}[true]{%
   \settoggle{bbx:pageranges}{#1}%
@@ -54,7 +58,7 @@
 \DeclareFieldFormat[article]{pages}{%
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }
-\DeclareFieldFormat[proceedings]{title}{#1}
+\DeclareFieldFormat[inbook, incollection, proceedings]{title}{#1}
 \DeclareFieldFormat[patent]{type}{%
   \ifbibstring{#1}
     {\mkbibemph{\bibstring{#1}}}
@@ -344,6 +348,10 @@
   \newunit\newblock
   \usebibmacro{byauthor}%
   \newunit\newblock
+  \iftoggle{bbx:chaptertitle}
+    {\usebibmacro{title}}
+    {}%
+  \newunit\newblock
   \usebibmacro{in:}%
   \usebibmacro{bybookauthor}%
   \newunit\newblock
@@ -379,6 +387,10 @@
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
+  \newunit\newblock
+  \iftoggle{bbx:chaptertitle}
+    {\usebibmacro{title}}
+    {}%
   \newunit\newblock
   \usebibmacro{in:}%
   \usebibmacro{maintitle+booktitle}%
