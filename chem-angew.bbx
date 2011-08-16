@@ -27,6 +27,20 @@
   \settoggle{bbx:pageranges}{#1}%
 }
 
+\DeclareBibliographyOption{biblabel}{%
+  \ifstrequal{#1}{plain}
+    {\DeclareFieldFormat{labelnumberwidth}{##1}}
+    {%
+      \ifstrequal{#1}{parens}
+        {\DeclareFieldFormat{labelnumberwidth}{\mkbibparens{##1}}%
+        {%
+          \ifstrequal{#1}{dot}
+            {\DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}}
+            {\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}}%
+        }%
+    }%
+}
+
 % Alter settings that carry through from biblatex
 \ExecuteBibliographyOptions
   {
@@ -56,12 +70,14 @@
     {\nolinkurl{#1}}%
 }
 \DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}
 \DeclareFieldFormat[article]{pages}{%
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }
 \DeclareFieldFormat{removecomma}{\mkbibnocomma{#1}}
 \DeclareFieldFormat
-  [booklet, inbook, incollection, manual, online, proceedings, report]{title}{#1}
+  [booklet, inbook, incollection, manual, online, proceedings, report]
+  {title}{#1}
 \DeclareFieldFormat[patent]{type}{%
   \ifbibstring{#1}
     {\mkbibemph{\bibstring{#1}}}

@@ -27,6 +27,20 @@
   \settoggle{bbx:pageranges}{#1}%
 }
 
+\DeclareBibliographyOption{biblabel}{%
+  \ifstrequal{#1}{plain}
+    {\DeclareFieldFormat{labelnumberwidth}{##1}}
+    {%
+      \ifstrequal{#1}{brackets}
+        {\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}%
+        {%
+          \ifstrequal{#1}{dot}
+            {\DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}}
+            {\DeclareFieldFormat{labelnumberwidth}{\mkbibparens{##1}}}%
+        }%
+    }%
+}
+
 % Alter settings that carry through from biblatex
 \ExecuteBibliographyOptions
   {

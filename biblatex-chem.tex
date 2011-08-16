@@ -126,6 +126,13 @@ The standard settings for the \pkg{chem-acs}, \pkg{chem-angew}
 and \pkg{chem-rsc} styles have this option turned off, while the
 \pkg{chem-biochem} sets this option \opt{true}.
 
+\DescribeOption{biblabel}
+The format of the numbers used in the bibliography (the \enquote{bibliography
+label})varies from journal to journal even if the same general style is used.
+The \opt{biblabel} option allows the user to easily set the format used. This
+option takes a value from the list: \opt{parens}, \opt{brackets}, \opt{plain}
+and \opt{dot}.
+
 \DescribeOption{chaptertitle}
 The option boolean \opt{chaptertitle} option is provided to allow flexibility
 for the inclusion of chapter titles for \texttt{inbook} and
@@ -175,6 +182,8 @@ be sent by e-mail to
   \texttt{chem-angew} and \texttt{chem-rsc} styles}
 \changes{v1.1a}{2011/08/16}{Turn off standard \opt{eprint}
   and \opt{isbn} options by default}
+\changes{v1.1b}{2011/08/17}{Further documentation improvements}
+\changes{v1.1b}{2011/08/17}{Re-introduce the \opt{biblabel} option}
 
 \PrintChanges
 
