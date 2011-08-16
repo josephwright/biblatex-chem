@@ -32,7 +32,7 @@
     {\DeclareFieldFormat{labelnumberwidth}{##1}}
     {%
       \ifstrequal{#1}{parens}
-        {\DeclareFieldFormat{labelnumberwidth}{\mkbibparens{##1}}%
+        {\DeclareFieldFormat{labelnumberwidth}{\mkbibparens{##1}}}%
         {%
           \ifstrequal{#1}{dot}
             {\DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}}
@@ -70,7 +70,7 @@
     {\nolinkurl{#1}}%
 }
 \DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
-\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 \DeclareFieldFormat[article]{pages}{%
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }

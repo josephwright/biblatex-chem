@@ -32,7 +32,7 @@
     {\DeclareFieldFormat{labelnumberwidth}{##1}}
     {%
       \ifstrequal{#1}{brackets}
-        {\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}%
+        {\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{##1}}}%
         {%
           \ifstrequal{#1}{dot}
             {\DeclareFieldFormat{labelnumberwidth}{##1\adddot\midsentence}}
