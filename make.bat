@@ -38,7 +38,7 @@
   rem parts. AUXFILES are deleted after each (La)TeX run, CLEAN only
   rem when the user calls "make clean"
 
-  set AUXFILES=aux bbl blg log out toc xml
+  set AUXFILES=aux bbl blg glo gls ilg log out toc xml
   set CLEAN=pdf zip
 
   rem The file types for inclusion in the archive files: note that a CTAN
@@ -116,12 +116,13 @@
 
   echo Main documentation
   pdflatex %PACKAGE% > nul
-  bibtex8 --wolfgang %PACKAGE% > nul
+  makeindex -q -s gglo.ist -o %PACKAGE%.gls %PACKAGE%.glo > nul
   pdflatex %PACKAGE% > nul
 
   for %%I in (%STYLES%) do (
     echo biblatex-%%I
     pdflatex biblatex-%%I > nul
+    makeindex -q -s gglo.ist -o biblatex-%%I.gls biblatex-%%I.glo> nul
     bibtex8 --wolfgang biblatex-%%I > nul
     pdflatex biblatex-%%I > nul
   )

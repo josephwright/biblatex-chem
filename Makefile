@@ -115,7 +115,7 @@ ctan: tds
 	rm -rf tmp
 
 doc:
-	echo "Compling documents"
+	echo "Compiling documents"
 	for I in $(DOCS) ; do \
 	  pdflatex -draftmode -interaction=nonstopmode $$I &> /dev/null ; \
 	  makeindex -s gglo.ist -o $$NAME.gls $$NAME.glo &> /dev/null ; \
@@ -124,9 +124,10 @@ doc:
 	done
 	for I in $(STYLES) ; do \
 	  pdflatex -draftmode -interaction=nonstopmode biblatex-$$I &> /dev/null ; \
-	  bibtex8 --wolfgang biblatex-$$I               &> /dev/null ; \
+	  bibtex8 --wolfgang biblatex-$$I &> /dev/null ; \
+	  makeindex -s gglo.ist -o biblatex-$$I.gls biblatex-$$I.glo &> /dev/null ; \
 	  pdflatex -interaction=nonstopmode biblatex-$$I            &> /dev/null ; \
-	  rm -rf biblatex-$$I-blx.bib                                ; \
+	  rm -rf biblatex-$$I-blx.bib ; \
 	done
 	for I in $(AUXFILES) ; do \
 	  rm -rf *.$$I ; \
