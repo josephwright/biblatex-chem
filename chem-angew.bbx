@@ -125,7 +125,11 @@
     {\printtext[parens]{\printnames{holder}}}%
 }
   
-\renewbibmacro*{date}{\printtext[date]{\printdate}}
+\renewbibmacro*{date}{%
+  \iffieldundef{year}
+    {}
+    {\printtext[date]{\printdate}}%
+}
 
 \renewbibmacro*{event+venue+date}{%
   \printfield{eventtitle}%
