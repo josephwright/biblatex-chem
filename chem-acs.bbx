@@ -8,7 +8,7 @@
 %% ---------------------------------------------------------------
 %% 
 
-\ProvidesFile{chem-acs.bbx}[2012/05/18 v1.1f biblatex bibliography style]
+\ProvidesFile{chem-acs.bbx}[2012/05/18 v1.1g biblatex bibliography style]
 
 % Load the standard style to avoid copy-pasting unnecessary material
 \RequireBibliographyStyle{numeric-comp}
@@ -80,6 +80,7 @@
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }
 \DeclareFieldFormat*{title}{#1\adddot}
+\DeclareFieldFormat[report]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat[book, collection, inproceedings]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
@@ -599,6 +600,43 @@
   \printfield{note}%
   \newunit\newblock
   \usebibmacro{date}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{report}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \setunit{\addsemicolon\space}%
+  \printfield{type}%
+  \setunit*{\addspace}%
+  \printfield{number}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit
+  \printfield{note}%
+  \setunit{\addsemicolon\space}%
+  \usebibmacro{institution+location+date}%
+  \newunit\newblock
+  \usebibmacro{chapter+pages}%
+  \newunit
+  \printfield{pagetotal}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{isrn}}
+    {}%
   \newunit\newblock
   \usebibmacro{doi+eprint+url}%
   \newunit\newblock
