@@ -139,8 +139,7 @@ localinstall:
 	rm -rf $$TEXMFHOME/tex/$(PACKAGEROOT)/* ; \
 	mkdir -p $$TEXMFHOME/tex/$(PACKAGEROOT) ; \
 	cp *.bbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
-	cp *.cbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ ; \
-	texhash > /dev/null
+	cp *.cbx $$TEXMFHOME/tex/$(PACKAGEROOT)/ 
 	
 tds: doc
 	echo "Making TDS structure"
