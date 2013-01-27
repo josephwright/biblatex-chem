@@ -228,6 +228,22 @@
   \newunit
 }
 
+\newbibmacro*{related:translatedas}[1]{%
+  \entrydata{#1}{%
+    \usebibmacro{journal+issuetitle}%
+    \newunit
+    \usebibmacro{byeditor+others}%
+    \newunit
+    \usebibmacro{note+pages}%
+    \newunit\newblock
+    \iftoggle{bbx:isbn}
+      {\printfield{issn}}
+      {}%
+    \newunit\newblock
+    \usebibmacro{doi+eprint+url}%
+  }%
+}
+
 \renewbibmacro*{series+number}{%
   \printfield{series}%
   \setunit*{\addspace}%

@@ -193,6 +193,22 @@
   \newunit
 }
 
+\newbibmacro*{related:translatedas}[1]{%
+  \entrydata{#1}{%
+    \usebibmacro{journal+issuetitle}%
+    \newunit
+    \usebibmacro{byeditor+others}%
+    \newunit
+    \usebibmacro{note+pages}%
+    \newunit\newblock
+    \iftoggle{bbx:isbn}
+      {\printfield{issn}}
+      {}%
+    \newunit\newblock
+    \usebibmacro{doi+eprint+url}%
+  }%
+}
+
 % Specialised functions for manipulating data, where the biblatex
 % kernel does not provide a suitable function.
 \newcommand*\mkgroupeddigits[1]{%
