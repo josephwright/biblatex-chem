@@ -81,16 +81,10 @@
 
 % Simple modifications to punctuation, etc.
 \renewcommand*{\finalnamedelim}{%
-  \ifcurrentname{labelname}
-    {%
-      \ifnumgreater{\value{liststop}}{2}
-        {\finalandcomma}
-        {}%
-      \addspace
-      \bibstring{and}%
-      \space
-    }
-    {\multinamedelim}%
+  \finalandcomma
+  \addspace
+  \bibstring{and}%
+  \space
 }
 \renewcommand*{\intitlepunct}{\addspace}
 \renewcommand*{\labelnamepunct}{\addspace}
