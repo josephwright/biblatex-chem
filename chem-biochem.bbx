@@ -75,9 +75,9 @@
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }
 \DeclareFieldFormat*{title}{#1\adddot}
-\DeclareFieldFormat[book, collection, inproceedings]{title}{\mkbibemph{#1}}
+\DeclareFieldFormat[book, collection, inproceedings]{title}{\mkbibitalic{#1}}
 \DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
+\DeclareFieldFormat[article]{volume}{\mkbibitalic{#1}}
 
 % Simple modifications to punctuation, etc.
 \renewcommand*{\finalnamedelim}{%

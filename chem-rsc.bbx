@@ -68,7 +68,7 @@
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
     {\nolinkurl{#1}}%
 }
-\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+\DeclareFieldFormat{journaltitle}{\mkbibitalic{#1}\isdot}
 \DeclareFieldFormat{labelnumberwidth}{\mkbibparens{#1}}
 \DeclareFieldFormat[patent]{number}{\mkgroupeddigits{#1}}
 \DeclareFieldFormat[article]{pages}{%
@@ -77,8 +77,8 @@
 \DeclareFieldFormat[inbook, incollection, proceedings]{title}{#1}
 \DeclareFieldFormat[patent]{type}{%
   \ifbibstring{#1}
-    {\mkbibemph{\bibstring{#1}}}
-    {\mkbibemph{#1}}%
+    {\mkbibitalic{\bibstring{#1}}}
+    {\mkbibitalic{#1}}%
 }
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}

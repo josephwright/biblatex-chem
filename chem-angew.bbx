@@ -69,7 +69,7 @@
     {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
     {\nolinkurl{#1}}%
 }
-\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+\DeclareFieldFormat{journaltitle}{\mkbibitalic{#1}\isdot}
 \DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
 \DeclareFieldFormat[article]{pages}{%
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
@@ -79,14 +79,14 @@
   {title}{#1}
 \DeclareFieldFormat[patent]{type}{%
   \ifbibstring{#1}
-    {\mkbibemph{\bibstring{#1}}}
-    {\mkbibemph{#1}}%
+    {\mkbibitalic{\bibstring{#1}}}
+    {\mkbibitalic{#1}}%
 }
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat*{volume}{%
-  \mkbibemph{\bibstring{volume}~#1}%
+  \mkbibitalic{\bibstring{volume}~#1}%
 }
-\DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
+\DeclareFieldFormat[article]{volume}{\mkbibitalic{#1}}
 
 % Simple modifications to punctuation, etc.
 \renewcommand*{\finalnamedelim}{%
