@@ -350,10 +350,20 @@
 % Specialised functions for manipulating data, where the biblatex
 % kernel does not provide a suitable function.
 \newcommand*\mkbibnocomma[1]{%
-  \begingroup
-    \catcode`\, = 9\relax
-    \scantokens{#1}%
-  \endgroup
+  \in@{,}{#1}%
+  \ifin@
+    \expandafter\bbx@no@comma
+  \else
+    \expandafter\@firstofone
+  \fi
+    {#1}%
+}
+\newcommand*\bbx@no@comma[1]{%
+  \bbx@no@comma@aux#1,\@nil,%
+}
+\newcommand\bbx@no@comma@aux{}
+\def\bbx@no@comma@aux#1,{%
+  \ifx\@nil#1\else #1\expandafter\bbx@no@comma@aux\fi
 }
 
 % New bibliography drivers, using the required order of fields. These
