@@ -58,13 +58,13 @@
 % Modify the name format
 \DeclareNameFormat{default}{%
   \renewcommand*{\multinamedelim}{\addsemicolon\addspace}%
-  \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+  \usebibmacro{name:family-given}{#1}{#4}{#5}{#7}%
   \usebibmacro{name:andothers}%
 }
   
 \DeclareNameFormat{editor}{%
   \renewcommand*{\multinamedelim}{\addcomma\addspace}%
-  \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+  \usebibmacro{name:family-given}{#1}{#4}{#5}{#7}%
   \usebibmacro{name:andothers}%
 }
 

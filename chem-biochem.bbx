@@ -59,7 +59,7 @@
 
 % Modify the name format
 \DeclareNameFormat{default}{%
-  \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+  \usebibmacro{name:family-given}{#1}{#4}{#5}{#7}%
   \usebibmacro{name:andothers}%
 }
 
@@ -166,7 +166,7 @@
   \newunit
 }
 
-\renewbibmacro*{name:last-first}[4]{%
+\renewbibmacro*{name:family-given}[4]{%
   \ifuseprefix
     {\usebibmacro{name:delim}{#3#1}%
      \usebibmacro{name:hook}{#3#1}%
