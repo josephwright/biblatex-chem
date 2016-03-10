@@ -59,7 +59,12 @@
 
 % Modify the name format
 \DeclareNameFormat{default}{%
-  \usebibmacro{name:family-given}{#1}{#4}{#5}{#7}%
+  \nameparts{#1}%
+  \usebibmacro{name:family-given}
+    {\namepartfamily}
+    {\namepartgiveni}
+    {\namepartprefix}
+    {\namepartsuffix}%
   \usebibmacro{name:andothers}%
 }
 
