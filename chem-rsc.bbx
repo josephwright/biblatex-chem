@@ -55,15 +55,24 @@
   }
 
 % Modify the name format
-\DeclareNameFormat{default}{%
-  \nameparts{#1}%
-  \usebibmacro{name:given-family}
-    {\namepartfamily}
-    {\namepartgiveni}
-    {\namepartprefix}
-    {\namepartsuffix}%
-  \usebibmacro{name:andothers}%
-}
+\@ifpackageloaded{biblatex_legacy}
+  {
+    \DeclareNameFormat{default}{%
+      \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
+      \usebibmacro{name:andothers}%
+    }
+  }
+  {
+    \DeclareNameFormat{default}{%
+      \nameparts{#1}%
+      \usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffix}%
+      \usebibmacro{name:andothers}%
+    }
+  }
 
 % Custom field formats 
 \DeclareFieldFormat[inproceedings]{booktitle}{#1}

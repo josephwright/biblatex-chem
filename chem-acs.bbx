@@ -56,27 +56,43 @@
   }
 
 % Modify the name format
-\DeclareNameFormat{default}{%
-  \renewcommand*{\multinamedelim}{\addsemicolon\addspace}%
-  \nameparts{#1}%
-  \usebibmacro{name:family-given}
-    {\namepartfamily}
-    {\namepartgiveni}
-    {\namepartprefix}
-    {\namepartsuffix}%
-  \usebibmacro{name:andothers}%
-}
+\@ifpackageloaded{biblatex_legacy}
+  {
+    \DeclareNameFormat{default}{%
+      \renewcommand*{\multinamedelim}{\addsemicolon\addspace}%
+      \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+      \usebibmacro{name:andothers}%
+    }
   
-\DeclareNameFormat{editor}{%
-  \renewcommand*{\multinamedelim}{\addcomma\addspace}%
-  \nameparts{#1}%
-  \usebibmacro{name:family-given}
-    {\namepartfamily}
-    {\namepartgiveni}
-    {\namepartprefix}
-    {\namepartsuffix}%
-  \usebibmacro{name:andothers}%
-}
+    \DeclareNameFormat{editor}{%
+      \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+      \usebibmacro{name:last-first}{#1}{#4}{#5}{#7}%
+      \usebibmacro{name:andothers}%
+    }
+  }
+  {
+    \DeclareNameFormat{default}{%
+      \renewcommand*{\multinamedelim}{\addsemicolon\addspace}%
+      \nameparts{#1}%
+      \usebibmacro{name:family-given}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffix}%
+      \usebibmacro{name:andothers}%
+    }
+  
+    \DeclareNameFormat{editor}{%
+      \renewcommand*{\multinamedelim}{\addcomma\addspace}%
+      \nameparts{#1}%
+      \usebibmacro{name:family-given}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffix}%
+      \usebibmacro{name:andothers}%
+    }
+  }
 
 % Custom field formats 
 \DeclareFieldFormat[article]{date}{\mkbibbold{#1}}
