@@ -103,7 +103,10 @@
 }
 \renewcommand*{\intitlepunct}{\addspace}
 \renewcommand*{\labelnamepunct}{\addspace}
-\renewcommand*{\mkbibnameaffix}[1]{\addcomma\addspace#1}
+\ifdef{\mkbibnamesuffix}
+  {\renewcommand*{\mkbibnamesuffix}}
+  {\renewcommand*{\mkbibnameaffix}}%
+    [1]{\addcomma\space#1}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
 
 % Bibliography strings
@@ -194,7 +197,7 @@
         \mkbibnamefirst{#2}\isdot}%
      \ifblank{#4}{}
        {\addlowpenspace
-        \mkbibnameaffix{#4}\isdot}}
+        \mkbibnamesuffix{#4}\isdot}}
     {\usebibmacro{name:delim}{#1}%
      \usebibmacro{name:hook}{#1}%
      \mkbibnamelast{#1}\isdot
@@ -207,7 +210,7 @@
         \mkbibnameprefix{#3}\isdot}%
      \ifblank{#4}{}
        {\addlowpenspace
-        \mkbibnameaffix{#4}\isdot}}%
+        \mkbibnamesuffix{#4}\isdot}}%
 } 
   
 \renewbibmacro*{note+pages}{%
