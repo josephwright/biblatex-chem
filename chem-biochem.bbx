@@ -191,20 +191,20 @@
      \ifblank{#3}{}
        {\mkbibnameprefix{#3\isdot}%
         \ifpunctmark{'}{}{\addhighpenspace}}%
-     \mkbibnamelast{#1\isdot}%
+     \mkbibnamefamily{#1\isdot}%
      \ifblank{#2}{}
        {\addcomma\addlowpenspace
-        \mkbibnamefirst{#2}\isdot}%
+        \mkbibnamegiven{#2}\isdot}%
      \ifblank{#4}{}
        {\addlowpenspace
         \mkbibnamesuffix{#4}\isdot}}
     {\usebibmacro{name:delim}{#1}%
      \usebibmacro{name:hook}{#1}%
-     \mkbibnamelast{#1}\isdot
+     \mkbibnamefamily{#1}\isdot
      \ifblank{#2#3}{}{\addcomma}%
      \ifblank{#2}{}
        {\addlowpenspace
-        \mkbibnamefirst{#2}\isdot}%
+        \mkbibnamegiven{#2}\isdot}%
      \ifblank{#3}{}
        {\addlowpenspace
         \mkbibnameprefix{#3}\isdot}%
