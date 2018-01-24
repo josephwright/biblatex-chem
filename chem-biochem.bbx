@@ -188,27 +188,32 @@
   \ifuseprefix
     {\usebibmacro{name:delim}{#3#1}%
      \usebibmacro{name:hook}{#3#1}%
-     \ifblank{#3}{}
+     \ifdefvoid{#3}{}
        {\mkbibnameprefix{#3\isdot}%
-        \ifpunctmark{'}{}{\addhighpenspace}}%
+        \ifprefchar{}{\addhighpenspace}}%
      \mkbibnamefamily{#1\isdot}%
-     \ifblank{#2}{}
+     \ifdefvoid{#2}{}
        {\addcomma\addlowpenspace
         \mkbibnamegiven{#2}\isdot}%
-     \ifblank{#4}{}
+     \ifdefvoid{#4}{}
        {\addlowpenspace
         \mkbibnamesuffix{#4}\isdot}}
     {\usebibmacro{name:delim}{#1}%
      \usebibmacro{name:hook}{#1}%
      \mkbibnamefamily{#1}\isdot
-     \ifblank{#2#3}{}{\addcomma}%
-     \ifblank{#2}{}
+     \ifboolexpe{%
+       test {\ifdefvoid{#2}}
+       and
+       test {\ifdefvoid{#3}}}
+       {}
+       {\addcomma}%
+     \ifdefvoid{#2}{}
        {\addlowpenspace
         \mkbibnamegiven{#2}\isdot}%
-     \ifblank{#3}{}
+     \ifdefvoid{#3}{}
        {\addlowpenspace
         \mkbibnameprefix{#3}\isdot}%
-     \ifblank{#4}{}
+     \ifdefvoid{#4}{}
        {\addlowpenspace
         \mkbibnamesuffix{#4}\isdot}}%
 } 
