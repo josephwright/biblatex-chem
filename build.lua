@@ -10,9 +10,16 @@ module = "biblatex-chem"
 -- This needs a little bit of trickery to get the .bib file into the right
 -- places
 demofiles    = {"*.bib"}
-typesetfiles = {"*.tex"}
+typesetfiles =
+  {
+    "biblatex-chem.tex",
+    "biblatex-chem-acs.tex",
+    "biblatex-chem-angew.tex",
+    "biblatex-chem-biochem.tex",
+    "biblatex-chem-rsc.tex"
+  }
 supportdir       = "."
-typesetsuppfiles = {"*.bib"}
+typesetsuppfiles = {"*.bib","biblatex-chem-common.tex"}
 
 -- .Nothing to unpack
 unpackfiles = { }
