@@ -95,6 +95,7 @@
 \DeclareFieldFormat[article]{volume}{\mkbibitalic{#1}}
 
 % Simple modifications to punctuation, etc.
+\renewcommand*{\begrelateddelim}{\addsemicolon\space}%
 \renewcommand*{\finalnamedelim}{%
   \finalandcomma
   \addspace
@@ -245,46 +246,6 @@
   \newunit
 }
 
-\renewbibmacro*{related}{%
-  \ifboolexpr{
-    not test {\iftoggle{bbx:related}}
-    or
-    test {\iffieldundef{related}}
-  }
-    {}
-    {%
-     \setunit{\addsemicolon\space}%
-     \setcounter{bbx:relatedcount}{0}%
-     \setcounter{bbx:relatedtotal}{0}%
-     \def\do##1{\stepcounter{bbx:relatedtotal}}%
-     \docsvfield{related}%
-     \def\do{%
-       \stepcounter{bbx:relatedcount}%
-       \ifnumgreater{\value{bbx:relatedcount}}{1}
-         {\printtext{\relateddelim}}
-         {}}%
-     \ifbibmacroundef{related:\strfield{relatedtype}}
-       {\appto{\do}{\usebibmacro{related:default}}}
-       {\appto{\do}{\usebibmacro*{related:\strfield{relatedtype}}}}%
-     \iffieldformatundef{related:\strfield{relatedtype}}
-       {\def\bbx@tempa{related}}
-       {\def\bbx@tempa{related:\strfield{relatedtype}}}%
-     \printtext[\bbx@tempa]{%
-       \iffieldundef{relatedstring}
-         {\ifboolexpr{
-            test {\ifnumgreater{\value{bbx:relatedtotal}}{1}}
-            and
-            test {\ifbibxstring{\thefield{relatedtype}s}}
-          }
-            {\printtext{\bibstring{\thefield{relatedtype}s}\relatedpunct}}
-            {\iffieldbibstring{relatedtype}
-               {\printtext{\bibstring{\thefield{relatedtype}}\relatedpunct}}
-               {}}}
-         {\iffieldbibstring{relatedstring}
-            {\printtext{\bibstring{\thefield{relatedstring}}\relatedpunct}}
-            {\printtext{\printfield{relatedstring}\relatedpunct}}}%
-       \docsvfield{related}}}}
-
 \newbibmacro*{related:translatedas}[1]{%
   \entrydata{#1}{%
     \usebibmacro{journal+issuetitle}%
@@ -401,7 +362,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -436,7 +400,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -476,7 +443,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -522,7 +492,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -566,7 +539,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 \DeclareBibliographyDriver{inproceedings}{%
@@ -603,7 +579,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -646,7 +625,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -677,7 +659,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -712,7 +697,10 @@
   \setunit{\bibpagerefpunct}\newblock
   \usebibmacro{pageref}%
   \newunit\newblock
-  \usebibmacro{related}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
   \usebibmacro{finentry}%
 }
 
