@@ -89,7 +89,7 @@
 \DeclareFieldFormat[article]{pages}{%
   \iftoggle{bbx:pageranges}{#1}{\mkfirstpage{#1}}%
 }
-\DeclareFieldFormat*{title}{#1\adddot}
+\DeclareFieldFormat*{title}{#1}
 \DeclareFieldFormat[book, collection, inproceedings]{title}{\mkbibitalic{#1}}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{volume}{\mkbibitalic{#1}}
@@ -298,7 +298,7 @@
   \iftoggle{bbx:articletitle}
     {%
       \usebibmacro{title}%
-      \newunit
+      \printunit{\adddot\space}%
     }
     {}%
   \usebibmacro{byauthor}%
@@ -705,7 +705,7 @@
 }
 
 %% 
-%% Copyright (C) 2010-2014,2016-2018 by
+%% Copyright (C) 2010-2014,2016-2019 by
 %%   Joseph Wright <joseph.wright@morningstar2.co.uk>
 %% 
 %% It may be distributed and/or modified under the conditions of
